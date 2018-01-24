@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+/* .rooms:hover {
+  text-decoration: underline;
+} */
+
 .title {
   font-size: 2.5em;
   padding-left: 25px;
@@ -29,7 +33,7 @@
   background: none;
   cursor: pointer;
   outline: none;
-  padding: .7em 1.7em .7em 1.7em;
+  padding: 0.7em 1.7em 0.7em 1.7em;
   background-color: #eff1f4;
   border: none;
   text-shadow: none;
@@ -38,7 +42,6 @@
 }
 
 .displayed {
-
 }
 
 .hidden {
