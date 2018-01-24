@@ -52,6 +52,11 @@ class App extends Component {
               firebase={firebase}
               activeRoom={this.state.activeRoom.key}
               activeRoomName={this.state.activeRoom.name}
+              username={`${
+                this.state.username.displayName
+                  ? this.state.username.displayName
+                  : "User"
+              }`}
             />
           ) : null}
           <User
