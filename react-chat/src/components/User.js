@@ -30,9 +30,24 @@ class User extends Component {
 
   render() {
     return (
-      <div className="user-set">
-        <button onClick={this.login.bind(this)}>Sign-In</button>
-        <button onClick={this.logoff.bind(this)}>Sign-Out</button>
+      <div className="card border-light text-center bg-transparent">
+        <div className="card-header bg-transparent border-light">
+          Username & Account Info
+        </div>
+        <div className="card-body">
+          <h3 className="card-title">Sign-In</h3>
+          <div className="btn-group">
+            <button className="btn btn-lg btn-success" onClick={this.login.bind(this)}>
+              Sign-In
+            </button>
+            <button
+              className="btn btn-lg btn-secondary"
+              onClick={this.logoff.bind(this)}
+            >
+              Sign-Out
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

@@ -17,9 +17,9 @@
   cursor: pointer;
 }
 
-/* .rooms:hover {
+.rooms:hover {
   text-decoration: underline;
-} */
+}
 
 .title {
   font-size: 2.5em;

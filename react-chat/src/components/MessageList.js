@@ -55,28 +55,43 @@ class MessageList extends Component {
 
   render() {
     return (
-      <div className="message-area">
-        <h2>{this.props.activeRoomName}</h2>
-        <ul className="message-list">
-          {this.state.messages.map(message => {
-            if (message.roomId === this.props.activeRoom)
-              return (
-                <li className="messages" key={message.key}>
-                  {message.content} {message.sentAt} {message.username}
-                </li>
-              );
-            else return null;
-          })}
-        </ul>
-        <form className="message-bar" onSubmit={this.sendMessage}>
-          <input
-            type="text"
-            value={this.state.content}
-            placeholder="Enter Message"
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Send" />
-        </form>
+      <div className="card-group text-center bg-dark">
+        <div className="card bg-transparent border-light text-light padding">
+          <div className="card-header">Chat Room</div>
+          <div className="card-body">
+            <h3 className="card-title">{this.props.activeRoomName}</h3>
+            <ul className="card bg-secondary text-white">
+              {this.state.messages.map(message => {
+                if (message.roomId === this.props.activeRoom)
+                  return (
+                    <p className="messages" key={message.key}>
+                      {message.content} {message.sentAt} {message.username}
+                    </p>
+                  );
+                else return null;
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="card text-center text-white bg-dark">
+          <div className="card-header">New Message</div>
+          <div className="card-body">
+            <h3 className="card-title">Enter New Message</h3>
+            <form className="message-bar" onSubmit={this.sendMessage}>
+              <input
+                type="text"
+                value={this.state.content}
+                placeholder="Enter Message"
+                onChange={this.handleChange}
+              />
+              <input
+                className="btn btn-sm btn-secondary"
+                type="submit"
+                value="Send"
+              />
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

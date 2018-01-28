@@ -45,35 +45,55 @@ class RoomList extends Component {
 
   render() {
     return (
-      <div className="roomlist">
-        <h1 className="title">Bloc Chat</h1>
-        <button className="new-room" onClick={this.toggleForm}>
-          Create Room
-        </button>
-        <ul className="sidebar-list">
-          {this.state.rooms.map((room, index) => (
-            <li
-              className="rooms"
-              key={index}
-              onClick={e => this.selectRoom(room, e)}
-            >
-              {room.name}
-            </li>
-          ))}
-        </ul>
+      <div className="card border-dark text-center">
+        <div className="card-header jumbotron">
+          <h1>Welcome to Bloc Chat</h1>
+        </div>
 
-        <div className={this.state.submitForm ? "displayed" : "hidden"}>
-          <form onSubmit={this.createRoom}>
-            <h2 className="form-title">Create New Room</h2>
-            <h3 className="text-field-description">Enter Room Name</h3>
-            <input type="text" id="new-room-name" name="newRoomName" />
-            <button className="create-room" type="submit">
-              Create Room
-            </button>
-            <button className="cancel" onClick={this.toggleForm}>
-              Cancel
-            </button>
-          </form>
+        <div className="card-body bg-transparent">
+          <button className="btn btn-sm btn-primary" onClick={this.toggleForm}>
+            Create a New Room
+          </button>
+        </div>
+
+        <div className="card-body">
+          <ul className="navbar">
+            {this.state.rooms.map((room, index) => (
+              <button-group
+                className="btn btn-group"
+                key={index}
+                onClick={e => this.selectRoom(room, e)}
+              >
+                <button className="btn btn-lg btn-success">{room.name}</button>
+              </button-group>
+            ))}
+          </ul>
+
+          <div className={this.state.submitForm ? "displayed" : "hidden"}>
+            <div className="card-body text-center">
+              <form onSubmit={this.createRoom}>
+                <h4>Create a New Room</h4>
+                <div className="form-control">
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="new-room-name"
+                    placeholder="Enter Room Name"
+                    name="newRoomName"
+                  />
+                  <button className="btn btn-sm btn-primary" type="submit">
+                    Create Room
+                  </button>
+                  <button
+                    className="btn btn-sm btn-secondary"
+                    onClick={this.toggleForm}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     );
